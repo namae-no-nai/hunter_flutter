@@ -1,8 +1,8 @@
 > ## Caso de sucesso
 1. OK Sistema valida os dados
 2. OK Sistema faz uma requisição para URL da API de login
-3. Sistema valida os dados recebidos da API
-4. Sistema entrega os dados da conta do usuário
+3. OK Sistema valida os dados recebidos da API
+4. OK Sistema entrega os dados da conta do usuário
 
 > ## Exceção - URL inválida
 1. OK Sistema retorna uma mensagem de erro inesperado
