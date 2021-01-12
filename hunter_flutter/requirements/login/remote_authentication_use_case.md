@@ -14,7 +14,7 @@
 1. Sistema retorna uma mensagem de erro inesperado
 
 > ## Excessão - Falha no servidor
-1. Sistema retorna uma mensagem 
+1. OK Sistema retorna uma mensagem de erro inesperado 
 
 > ## Excessão - Credênciais inválidas
 1. Sistema retorna uma mensagem de erro informando que as credênciais estão erradas
