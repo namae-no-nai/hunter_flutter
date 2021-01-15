@@ -84,5 +84,19 @@ void main() {
 
       expect(future, throwsA(HttpError.badRequest));
     });
+    test('Should return BadRequest error if post returns 400', () async {
+      mockResponse(400);
+
+      final future = sut.request(url: url, method: 'post');
+
+      expect(future, throwsA(HttpError.badRequest));
+    });
+    test('Should return ServerError error if post returns 500', () async {
+      mockResponse(500);
+
+      final future = sut.request(url: url, method: 'post');
+
+      expect(future, throwsA(HttpError.serverError));
+    });
   });
 }

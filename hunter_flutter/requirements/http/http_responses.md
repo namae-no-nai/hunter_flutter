@@ -8,14 +8,14 @@
 5. OK No content - 204 e reposta sem dados
 
 > ## Erros
-1. Bad request - 400
+1. OK Bad request - 400
 2. Unauthorized - 401
 3. Forbidden - 403
 4. Not Found - 404
-5. Internal server error - 500
+5. OK Internal server error - 500
 
 > ## Exceção - Status code diferente dos citados acima
-1. Internal server error - 500
+1. OK Internal server error - 500
 
 > ## Exceção - Http Request deu alguma excessão
 1. Internal sever error - 500
