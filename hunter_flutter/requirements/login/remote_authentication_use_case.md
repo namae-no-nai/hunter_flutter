@@ -11,7 +11,7 @@
 1. OK Sistema retorna uma mensagem de erro inesperado
 
 > ## Exceção - Dados inválidos
-1. Sistema retorna uma mensagem de erro inesperado
+1. OK Sistema retorna uma mensagem de erro inesperado
 
 > ## Excessão - Falha no servidor
 1. OK Sistema retorna uma mensagem de erro inesperado 

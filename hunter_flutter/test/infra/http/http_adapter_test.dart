@@ -21,7 +21,7 @@ void main() {
 
   group('shared', () {
     test('Should throw server error if invalid method is provided', () async {
-      final future = sut.request(url: url, method: 'invalid_method');
+      final future = sut.request(url: url, method: 'invalid');
 
       expect(future, throwsA(HttpError.serverError));
     });
@@ -33,6 +33,10 @@ void main() {
     void mockResponse(int statusCode,
         {String body = '{"any_key":"any_value"}'}) {
       mockRequest().thenAnswer((_) async => Response(body, statusCode));
+    }
+
+    void mockError() {
+      mockRequest().thenThrow(Exception());
     }
 
     setUp(() {
@@ -123,7 +127,7 @@ void main() {
       expect(future, throwsA(HttpError.notFound));
     });
     test('Should return ServerError error if post returns 500', () async {
-      mockResponse(500);
+      mockError();
 
       final future = sut.request(url: url, method: 'post');
 
