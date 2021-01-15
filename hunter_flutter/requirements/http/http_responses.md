@@ -2,9 +2,9 @@
 
 > ## Sucesso
 1. OK Request com verbo http válido (post)
-2. Passar nos headers o content type JSON
-3. Chamar request com body correto
-4. OK - 200 e resposta com dados
+2. OK Passar nos headers o content type JSON
+3. OK Chamar request com body correto
+4. OK 200 e resposta com dados
 5. No content - 204 e reposta sem dados
 
 > ## Erros
