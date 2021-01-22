@@ -1,5 +1,4 @@
 import 'package:faker/faker.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
@@ -39,7 +38,8 @@ void main() {
 
     sut.emailErrorStream
         .listen(expectAsync1((error) => expect(error, 'error')));
-    sut.isFormValid.listen(expectAsync1((error) => expect(error, 'error')));
+    sut.isFormValidStream
+        .listen(expectAsync1((isValid) => expect(isValid, false)));
 
     sut.validateEmail(email);
     sut.validateEmail(email);
