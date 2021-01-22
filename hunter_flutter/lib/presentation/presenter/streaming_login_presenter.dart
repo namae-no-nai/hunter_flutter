@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:hunter_flutter/domain/usecases/usescases.dart';
+
 import '../protocols/protocols.dart';
 import 'package:meta/meta.dart';
 
@@ -8,6 +10,7 @@ class LoginState {
   String password;
   String emailError;
   String passwordError;
+  bool isLoading = false;
 
   bool get isFormValid =>
       emailError == null &&
@@ -18,6 +21,7 @@ class LoginState {
 
 class StreamLoginPresenter {
   final Validation validation;
+  final Authentication authentication;
   final _controller = StreamController<LoginState>.broadcast();
 
   var _state = LoginState();
@@ -28,8 +32,11 @@ class StreamLoginPresenter {
       _controller.stream.map((state) => state.passwordError).distinct();
   Stream<bool> get isFormValidStream =>
       _controller.stream.map((state) => state.isFormValid).distinct();
+  Stream<bool> get isLoadingStream =>
+      _controller.stream.map((state) => state.isLoading).distinct();
 
-  StreamLoginPresenter({@required this.validation});
+  StreamLoginPresenter(
+      {@required this.validation, @required this.authentication});
 
   void _update() => _controller.add(_state);
 
@@ -43,6 +50,15 @@ class StreamLoginPresenter {
     _state.password = password;
     _state.passwordError =
         validation.validate(field: 'password', value: password);
+    _update();
+  }
+
+  Future<void> auth() async {
+    _state.isLoading = true;
+    _update();
+    await authentication.auth(
+        AuthenticationParams(email: _state.email, password: _state.password));
+    _state.isLoading = false;
     _update();
   }
 }
